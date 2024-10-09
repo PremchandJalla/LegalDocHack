@@ -1,0 +1,35 @@
+name: Lease Document Q&A
+description: A GenAI web application using Flask where users can upload lease documents and ask questions
+  using Nvidia NIM Mistralai API.
+author: Premchand Jalla
+specification_version: 1.0
+prototype_version: 1.0
+date: "2024-10-09"
+
+runtimes:
+  - editor: Workbench
+    kernel: Python 3.9
+    edition: Standard
+
+environment_variables:
+  - name: OPENAI_API_KEY
+    type: string
+    description: "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"
+    required: true
+    
+tasks:
+  - type: run_session
+    name: Install Dependencies
+    script: scripts/install_dependencies.py
+    cpu: 2
+    memory: 4
+
+  - type: start_application
+    short_summary: Starting streamlit application
+    name: Predicting EvapoTranspiration
+    subdomain: streamlit
+    script: scripts/launch_app.py
+    environment_variables:
+      TASK_TYPE: START_APPLICATION
+    cpu: 2
+    memory: 4
