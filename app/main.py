@@ -80,8 +80,10 @@ def index():
             return answer  # Return just the answer as plain text
     
     return render_template('index.html')
-
+    
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Use '0.0.0.0' to bind to all IP addresses, similar to how Streamlit does
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("CDSW_APP_PORT", 5000)))
+
 
