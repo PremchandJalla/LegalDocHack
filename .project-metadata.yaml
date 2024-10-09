@@ -14,7 +14,7 @@ runtimes:
 environment_variables:
   - name: OPENAI_API_KEY
     type: string
-    description: "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"
+    description: "API KEY"
     required: true
     
 tasks:
