@@ -83,7 +83,8 @@ def index():
     
 
 if __name__ == '__main__':
-    # Use '0.0.0.0' to bind to all IP addresses, similar to how Streamlit does
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("CDSW_APP_PORT", 5000)))
+    # Let Flask choose an available port
+    app.run(debug=True, host='0.0.0.0', port=0)
+
 
 
