@@ -25,11 +25,10 @@ tasks:
     memory: 4
 
   - type: start_application
-    short_summary: Starting streamlit application
-    name: Predicting EvapoTranspiration
-    subdomain: streamlit
-    script: scripts/launch_app.py
+    short_summary: Starting the Lease Document Q&A Flask app
+    name: Lease Document Q&A
+    script: app/main.py
     environment_variables:
-      TASK_TYPE: START_APPLICATION
+      - name: OPENAI_API_KEY
     cpu: 2
     memory: 4
