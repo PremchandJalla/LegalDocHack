@@ -84,7 +84,7 @@ def index():
 
 if __name__ == '__main__':
     # Let Flask choose an available port
-    app.run(debug=True, host='0.0.0.0', port=0)
+    app.run(debug=True, server_name='127.0.0.1' , server_port=int(os.getenv("CDSW_APP_PORT")))
 
 
 
