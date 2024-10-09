@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lease Document Q&A Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            width: 450px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        #header {
+            background-color: #4CAF50;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        #chatbox {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+            background-color: #e0e0e0;
+        }
+
+        .user-message, .bot-message {
+            margin: 10px 0;
+            display: flex;
+        }
+
+        .user-message .message-bubble, .bot-message .message-bubble {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .user-message {
+            justify-content: flex-end;
+        }
+
+        .user-message .message-bubble {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .bot-message {
+            justify-content: flex-start;
+        }
+
+        .bot-message .message-bubble {
+            background-color: #ddd;
+        }
+
+        #input-container {
+            padding: 15px;
+            background-color: #f1f1f1;
+            display: flex;
+            align-items: center;
+        }
+
+        #input-container input[type="file"] {
+            display: none;
+        }
+
+        #custom-file-upload {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        #message {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        #submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="chat-container">
+    <div id="header">Lease Document Q&A Chatbot</div>
+    <div id="chatbox">
+        <!-- Chat messages will be displayed here -->
+        {% if answer %}
+        <div class="bot-message">
+            <div class="message-bubble">{{ answer }}</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div id="input-container">
+        <label for="file-upload" id="custom-file-upload">Upload Lease</label>
+        <input id="file-upload" type="file" name="file">
+        
+        <input id="message" type="text" name="question" placeholder="Ask a question..." required>
+        
+        <button id="submit-btn">Send</button>
+    </div>
+</div>
+
+<script>
+    const fileUpload = document.getElementById("file-upload");
+    const submitBtn = document.getElementById("submit-btn");
+
+    submitBtn.addEventListener("click", function() {
+        if (fileUpload.files.length === 0) {
+            alert("Please upload a lease document.");
+            return;
+        }
+
+        const message = document.getElementById("message").value;
+        if (message.trim() === "") {
+            alert("Please enter a question.");
+            return;
+        }
+
+        // Submit the form programmatically
+        const formData = new FormData();
+        formData.append("file", fileUpload.files[0]);
+        formData.append("question", message);
+
+        fetch("/", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Dynamically update the chat window with the response
+            const chatbox = document.getElementById("chatbox");
+            const botMessage = document.createElement("div");
+            botMessage.classList.add("bot-message");
+            const messageBubble = document.createElement("div");
+            messageBubble.classList.add("message-bubble");
+            messageBubble.textContent = data;
+            botMessage.appendChild(messageBubble);
+            chatbox.appendChild(botMessage);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+</script>
+
+</body>
+</html>
