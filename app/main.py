@@ -16,7 +16,7 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 # Nvidia NIM Client Setup
 client = OpenAI(
     base_url="https://integrate.api.nvidia.com/v1",
-    api_key=os.getenv("OPENAI_API_KEY")  # Load API key from environment variable
+    api_key="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"  # Load API key from environment variable
 )
 
 def extract_text_from_pdf(pdf_path):
