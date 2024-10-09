@@ -27,7 +27,7 @@ tasks:
   - type: start_application
     short_summary: Starting the Lease Document Q&A Flask app
     name: Lease Document Q&A
-    script: app/main.py
+    script: app/app.py
     environment_variables:
       - name: OPENAI_API_KEY
     cpu: 2
