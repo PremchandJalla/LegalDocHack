@@ -71,11 +71,6 @@ A web application that allows users to upload legal documents (such as lease agr
    - Implement **LLMOps** (Large Language Model Operations) for more robust model monitoring, versioning, and feedback-driven updates.
    - **LLMOps Workflow**: This will include version control for model updates, model retraining based on real-time data, monitoring for quality assurance, and better model deployment strategies for scalable LLMs. With **LLMOps**, the entire lifecycle of the **Mistral AI** model will be streamlined from development to production.
 
-### 4. **Document Summarization**
-   - Implement document summarization to provide users with concise overviews of their legal documents. This feature will help users get a quick understanding of the document's key points without reading through the entire text.
-   - **Summarization Models**: Leverage models like **BART** or **T5** to generate accurate summaries for legal documents.
-
-
 ## Screenshots
 
 ![image](https://github.com/user-attachments/assets/faad3c33-be2d-414a-96ec-4810ed34d1c5)
