@@ -90,4 +90,8 @@ A web application that allows users to upload legal documents (such as lease agr
 
 
 
+![image](https://github.com/user-attachments/assets/87ff55b0-a15b-4e62-84d2-2ece541bcd65)
+
+
+*NVIDIA Mistral AI returns summary of  the content of the document.*
 
