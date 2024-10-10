@@ -54,6 +54,25 @@ A web application that allows users to upload legal documents (such as lease agr
 
 6. **Stopping the app**:
    - To stop the app, go to your terminal window where the Flask server is running and press `CTRL + C`.
+  
+
+## Running the Application as an AMP
+
+To run this application as an **AMP (Applied Machine Learning Prototype)**, you will need to integrate it with **Cloudera AMP** and use an API key from **NVIDIA NIM** to access the **Mistral AI model**. Follow these steps:
+
+1. **Set up your Cloudera AMP environment**:
+   - Ensure you have access to **Cloudera AMP** and configure your environment with the necessary permissions and libraries.
+
+2. **Obtain an NVIDIA NIM API Key**:
+   - To access the **NVIDIA NIM Mistral AI** for generating legal document Q&A, you will need an API key from NVIDIA. You can request an API key by visiting the following link:
+     [Get NVIDIA NIM API Key](https://developer.nvidia.com/nvidia-nim-api-key)
+
+3. **Set the API Key in your environment**:
+   - Once you have obtained the API key, set it in your environment:
+     ```bash
+     export NIM_API_KEY=your-api-key-here
+     ```
+
 
 ## Future Enhancements
 
