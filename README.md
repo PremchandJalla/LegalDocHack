@@ -5,7 +5,7 @@ A web application that allows users to upload legal documents (such as lease agr
 ## Features
 
 - **Document Upload**: Users can upload legal documents (PDF format), such as lease agreements, contracts, or any legal text.
-- **PDF Parsing**: The application extracts text from the uploaded PDF file using `PyPDF2` or another PDF parsing library.
+- **PDF Parsing**: The application extracts text from the uploaded PDF file using `PyPDF2`  PDF parsing library.
 - **NVIDIA NIM Mistral AI Integration**: Powered by **NVIDIA NIM Mistral AI**, the application provides highly accurate and context-aware answers to complex legal queries.
 - **Question & Answer Functionality**: Users can ask questions related to the uploaded document, and the system provides answers by referencing the document's contents with the help of Mistral AI.
 - **Cloudera AMP Integration**: The system uses **Cloudera AMP** for scalable machine learning operations, model deployment, and monitoring.
