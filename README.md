@@ -1,6 +1,6 @@
 # Legal Document Q&A Powered by NVIDIA NIM Mistral AI
 
-A web application that allows users to upload legal documents (such as lease agreements) in PDF format and ask questions about the document's content. The system parses the document and provides answers to user queries based on the extracted information. The application now integrates **NVIDIA NIM Mistral AI** for enhanced question-answering performance, making it more effective in handling complex legal queries.
+A web application that allows users to upload legal documents (such as lease agreements) in PDF format and ask questions about the document's content. The system parses the document and provides answers to user queries based on the extracted information. The application integrates **NVIDIA NIM Mistral AI** for enhanced question-answering performance, and **Cloudera AMP** for managing and scaling the machine learning workflow.
 
 ## Features
 
@@ -8,6 +8,7 @@ A web application that allows users to upload legal documents (such as lease agr
 - **PDF Parsing**: The application extracts text from the uploaded PDF file using `PyPDF2` or another PDF parsing library.
 - **NVIDIA NIM Mistral AI Integration**: Powered by **NVIDIA NIM Mistral AI**, the application provides highly accurate and context-aware answers to complex legal queries.
 - **Question & Answer Functionality**: Users can ask questions related to the uploaded document, and the system provides answers by referencing the document's contents with the help of Mistral AI.
+- **Cloudera AMP Integration**: The system uses **Cloudera AMP** for scalable machine learning operations, model deployment, and monitoring.
 - **Simple and Intuitive Interface**: Easy file uploads and question inputs allow users to interact with their legal documents seamlessly.
 
 ## How It Works
@@ -17,27 +18,63 @@ A web application that allows users to upload legal documents (such as lease agr
 3. **Question Input**: Users can input their legal questions in the provided text box.
 4. **Mistral AI Document Querying**: The application uses **NVIDIA NIM Mistral AI** to interpret the query, search for relevant sections within the document, and generate contextually accurate responses.
 5. **Answer Display**: The system returns the most relevant sections or answers based on the user's question.
+6. **Cloudera AMP for Model Management**: The application leverages **Cloudera AMP** for managing machine learning workflows, handling data at scale, and monitoring the deployed model to ensure high availability and accuracy.
 
-## Usage
+## How to Run the Application
 
-- **Legal Document Queries**: Perfect for users who want to quickly reference key details from legal documents without manually searching the text.
-- **Lease Agreements**: Ideal for tenants and landlords who need quick answers about specific clauses in rental agreements.
-- **Contracts**: Useful for contract reviews where users can query specific terms and conditions.
+1. **Clone the repository**:
+   - Open your terminal and run the following command to clone the repository:
+     ```bash
+     git clone https://github.com/your-repo/LegalDocHack.git
+     cd LegalDocHack
+     ```
 
-## Technologies Used
+2. **Set up a virtual environment (optional but recommended)**:
+   - To avoid conflicts with other packages, create a virtual environment:
+     ```bash
+     python -m venv env
+     source env/bin/activate  # On Windows: env\Scripts\activate
+     ```
 
-- **Flask**: Web framework used for handling requests, routing, and rendering templates.
-- **PyPDF2**: Library used for extracting text from PDF documents.
-- **NVIDIA NIM Mistral AI**: Cutting-edge AI model used for generating accurate responses to legal queries.
-- **HTML/CSS**: For rendering the user interface for file uploads and displaying results.
+3. **Install the required dependencies**:
+   - Run the following command to install all necessary Python packages:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
-## Application Workflow
+4. **Run the Flask application**:
+   - After the dependencies are installed, run the Flask app with:
+     ```bash
+     python app/main.py
+     ```
 
-1. **Upload Document**: The user uploads a PDF containing legal information.
-2. **Parse Document**: The system extracts the text from the uploaded document.
-3. **Input Query**: The user types a question related to the document in a text input field.
-4. **Generate Answer**: NVIDIA Mistral AI generates an accurate answer based on the document's contents.
-5. **Display Result**: The generated answer is displayed to the user in an easy-to-read format.
+5. **Access the application**:
+   - Open your web browser and go to `http://127.0.0.1:5000/` to start using the application.
+   - You will be able to upload a legal document (such as a lease agreement) and ask questions related to its content.
+
+6. **Stopping the app**:
+   - To stop the app, go to your terminal window where the Flask server is running and press `CTRL + C`.
+
+## Future Enhancements
+
+### 1. **Retrieval-Augmented Generation (RAG) Knowledge Base**
+   - Integrating a **RAG** system will allow the application to use a vectorized knowledge base for improved legal document understanding. The system will retrieve relevant sections of the document based on the user’s query before generating an answer.
+   - **RAG Pipeline**: Utilize FAISS or another vector search engine to retrieve sections of the document that are relevant to the question. 
+   - The retrieval step will be followed by the **NVIDIA NIM Mistral AI** model generating a more contextually accurate answer using the retrieved information.
+
+### 2. **Fine-Tuning with Reinforcement Learning for a Feedback Loop**
+   - Implement a **reinforcement learning feedback loop** to improve the model’s performance over time. The model will learn from user feedback (e.g., thumbs up/down or corrections to answers) to improve its ability to understand and answer legal questions.
+   - **Reinforcement Learning**: Fine-tune the **Mistral AI** model with feedback signals from the users. Positive feedback (correct answers) will increase the likelihood of similar outputs in the future, while negative feedback will help reduce errors.
+   - This loop will enable the model to continually evolve and improve in answering complex legal queries.
+
+### 3. **LLMOps Integration**
+   - Implement **LLMOps** (Large Language Model Operations) for more robust model monitoring, versioning, and feedback-driven updates.
+   - **LLMOps Workflow**: This will include version control for model updates, model retraining based on real-time data, monitoring for quality assurance, and better model deployment strategies for scalable LLMs. With **LLMOps**, the entire lifecycle of the **Mistral AI** model will be streamlined from development to production.
+
+### 4. **Document Summarization**
+   - Implement document summarization to provide users with concise overviews of their legal documents. This feature will help users get a quick understanding of the document's key points without reading through the entire text.
+   - **Summarization Models**: Leverage models like **BART** or **T5** to generate accurate summaries for legal documents.
+
 
 ## Screenshots
 
@@ -56,9 +93,6 @@ A web application that allows users to upload legal documents (such as lease agr
 
 *NVIDIA Mistral AI returns an answer based on the content of the document.*
 
-## How to Run the Application
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/legal-document-qna.git
-   cd legal-document-qna
+
+
