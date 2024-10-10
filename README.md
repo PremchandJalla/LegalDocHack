@@ -65,7 +65,7 @@ To run this application as an **AMP (Applied Machine Learning Prototype)**, you 
 
 2. **Obtain an NVIDIA NIM API Key**:
    - To access the **NVIDIA NIM Mistral AI** for generating legal document Q&A, you will need an API key from NVIDIA. You can request an API key by visiting the following link:
-     [Get NVIDIA NIM API Key](https://developer.nvidia.com/nvidia-nim-api-key)
+     [Get NVIDIA NIM API Key]([https://developer.nvidia.com/nvidia-nim-api-key](https://build.nvidia.com/mistralai/mistral-7b-instruct-v03))
 
 3. **Set the API Key in your environment**:
    - Once you have obtained the API key, set it in your environment:
