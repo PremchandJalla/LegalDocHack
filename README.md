@@ -71,6 +71,12 @@ A web application that allows users to upload legal documents (such as lease agr
    - Implement **LLMOps** (Large Language Model Operations) for more robust model monitoring, versioning, and feedback-driven updates.
    - **LLMOps Workflow**: This will include version control for model updates, model retraining based on real-time data, monitoring for quality assurance, and better model deployment strategies for scalable LLMs. With **LLMOps**, the entire lifecycle of the **Mistral AI** model will be streamlined from development to production.
 
+
+### 4. **User Context Awareness**
+   - Integrate **user context awareness** to personalize responses based on the user’s identity or previous interactions with the system. This will allow the system to remember previous questions and offer more contextually relevant answers over time.
+   - **Contextual Understanding**: Implement user sessions or profiles that track previous legal queries, tailoring future responses based on the user’s history with the system.
+
+
 ## Screenshots
 
 ![image](https://github.com/user-attachments/assets/faad3c33-be2d-414a-96ec-4810ed34d1c5)
